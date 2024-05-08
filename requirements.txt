@@ -1,5 +1,5 @@
 easyocr==1.7.1
-opencv-python==4.9.0.80
+opencv-python==4.6.0
 openpyxl==3.1.2
 st-annotated-text==4.0.1
 twilio==9.0.5
