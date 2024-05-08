@@ -175,7 +175,7 @@ def main():
     video_file2 = open('Vedio1234.mp4', 'rb')
     video_bytes2 = video_file2.read()
     annotated_text(("Processing can take a few minutes so please wait......"," Click the vedio below to enjoy the song"))
-    st.video(video_bytes2,loop=True)
+    st.video(video_bytes2)
     if video_file is not None:
         # Display uploaded video
         video_bytes = video_file.read()
