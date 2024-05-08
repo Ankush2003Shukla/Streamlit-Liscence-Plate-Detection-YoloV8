@@ -122,8 +122,8 @@ def detect_violations(cap_user):
     details = list(set(results))
     print(details)
     success = False
-    account_sid = 'AC35f32a82092a6cce9e93dbe254a2216d'
-    auth_token = '7a671e826cdfe24482b2dc6d33ef3583'
+    account_sid = st.secrets["account_sid"]
+    auth_token = st.secrets["auth_token"]
     for i in range(0,len(details)):
         for j in range(0,a):
             if(data['Plate_Number'][j]==details[i]):
@@ -175,7 +175,7 @@ def main():
     video_file2 = open('Vedio1234.mp4', 'rb')
     video_bytes2 = video_file2.read()
     annotated_text(("Processing can take a few minutes so please wait......"," Click the vedio below to enjoy the song"))
-    st.video(video_bytes2)
+    st.video(video_bytes2,loop=True)
     if video_file is not None:
         # Display uploaded video
         video_bytes = video_file.read()
