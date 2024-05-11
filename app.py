@@ -124,6 +124,7 @@ def detect_violations(cap_user):
     success = False
     account_sid = st.secrets["account_sid"]
     auth_token = st.secrets["auth_token"]
+    st.write(account_sid)
     for i in range(0,len(details)):
         for j in range(0,a):
             if(data['Plate_Number'][j]==details[i]):
