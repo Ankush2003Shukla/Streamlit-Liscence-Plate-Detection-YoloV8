@@ -44,5 +44,5 @@ The app will analyze each frame of the video, detect license plates, extract tex
 If violations are detected (e.g., no insurance, pending challans), SMS alerts will be sent to the respective vehicle owners via Twilio.
 
 ## Contributors
-Ankush Kumar Shukla
-Feel free to contribute, report issues, or provide feedback to improve this project further!
+- Ankush Kumar Shukla
+- Feel free to contribute, report issues, or provide feedback to improve this project further!
