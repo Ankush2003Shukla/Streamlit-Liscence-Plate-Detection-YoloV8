@@ -1,6 +1,6 @@
 easyocr==1.7.1
 numpy==1.26.4
-opencv-python as cv2
+opencv-python
 opencv-python-headless
 openpyxl==3.1.2
 pandas==2.2.1
