@@ -124,7 +124,6 @@ def detect_violations(cap_user):
     success = False
     account_sid = st.secrets["account_sid"]
     auth_token = st.secrets["auth_token"]
-    st.write(account_sid)
     for i in range(0,len(details)):
         for j in range(0,a):
             if(data['Plate_Number'][j]==details[i]):
@@ -135,7 +134,8 @@ def detect_violations(cap_user):
                         client = Client(account_sid, auth_token)
                         name = data['Owner_Name'][j]
                         message = client.messages.create(
-                        from_='+12513063133',
+                        
+                        from_=st.secrets["number"],
                         to = f"+91{to_number}",
                         body = f"Dear {name}, \nTraffic Alert: Failure to carry car insurance is a serious violation of traffic laws. Protect yourself and others on the road by obtaining proper coverage immediately. Ignoring this requirement can lead to hefty fines, license suspension, and legal consequences and More than 2 penalties is pending. Your violation penalty has been issued. Don't put yourself at risk – get insured now."
                         )
@@ -150,7 +150,7 @@ def detect_violations(cap_user):
                         client = Client(account_sid, auth_token)
 
                         message = client.messages.create(
-                        from_='+12513063133',
+                        from_=st.secrets["number"],
                         to= f"+91{to_number}",
                         body = f"Dear {name}, \nTraffic Alert: Failure to carry car insurance is a serious violation of traffic laws. Protect yourself and others on the road by obtaining proper coverage immediately. Ignoring this requirement can lead to hefty fines, license suspension, and legal consequences. Your violation penalty has been issued. Don't put yourself at risk – get insured now."
                                     )
