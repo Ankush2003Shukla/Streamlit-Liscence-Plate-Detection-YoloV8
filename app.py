@@ -5,7 +5,7 @@ import numpy as np
 from ultralytics import YOLO
 import easyocr
 import pandas as pd
-from twilio.rest import Client
+# from twilio.rest import Client
 import openpyxl
 import tempfile
 from annotated_text import annotated_text
@@ -122,43 +122,40 @@ def detect_violations(cap_user):
     details = list(set(results))
     print(details)
     success = False
-    account_sid = st.secrets["account_sid"]
-    auth_token = st.secrets["auth_token"]
-    numbers = st.secrets["number"]
-    st.write(account_sid)
-    st.write(auth_token)
-    st.write(numbers)
+    # account_sid = st.secrets["account_sid"]
+    # auth_token = st.secrets["auth_token"]
+    # numbers = st.secrets["number"]
     for i in range(0,len(details)):
         for j in range(0,a):
             if(data['Plate_Number'][j]==details[i]):
                 if(data['Insurance'][j]=='NO'):
                     if(data['Pending_Chalan'][j]>2):
 
-                        to_number = data['Phone_Number'][j]
-                        client = Client(account_sid, auth_token)
-                        name = data['Owner_Name'][j]
-                        message = client.messages.create(
+                        # to_number = data['Phone_Number'][j]
+                        # client = Client(account_sid, auth_token)
+                        # name = data['Owner_Name'][j]
+                        # message = client.messages.create(
                         
-                        from_=numbers,
-                        to = f"+91{to_number}",
-                        body = f"Dear {name}, \nTraffic Alert: Failure to carry car insurance is a serious violation of traffic laws. Protect yourself and others on the road by obtaining proper coverage immediately. Ignoring this requirement can lead to hefty fines, license suspension, and legal consequences and More than 2 penalties is pending. Your violation penalty has been issued. Don't put yourself at risk – get insured now."
-                        )
-                        print(message.sid)
-                        p = data['Plate_Number'][j]
+                        # from_=numbers,
+                        # to = f"+91{to_number}",
+                        # body = f"Dear {name}, \nTraffic Alert: Failure to carry car insurance is a serious violation of traffic laws. Protect yourself and others on the road by obtaining proper coverage immediately. Ignoring this requirement can lead to hefty fines, license suspension, and legal consequences and More than 2 penalties is pending. Your violation penalty has been issued. Don't put yourself at risk – get insured now."
+                        # )
+                        # print(message.sid)
+                        # p = data['Plate_Number'][j]
                         annotated_text(("Traffic Violation Detected : NO INSURANCE & MORE THAN 2 CHALLAN PENDING : CAR NUMBER : ",p))
                         success = True
                     else:
 
-                        to_number = data['Phone_Number'][j]
-                        name = data['Owner_Name'][j]
-                        client = Client(account_sid, auth_token)
+                        # to_number = data['Phone_Number'][j]
+                        # name = data['Owner_Name'][j]
+                        # client = Client(account_sid, auth_token)
 
-                        message = client.messages.create(
-                        from_=numbers,
-                        to= f"+91{to_number}",
-                        body = f"Dear {name}, \nTraffic Alert: Failure to carry car insurance is a serious violation of traffic laws. Protect yourself and others on the road by obtaining proper coverage immediately. Ignoring this requirement can lead to hefty fines, license suspension, and legal consequences. Your violation penalty has been issued. Don't put yourself at risk – get insured now."
-                                    )
-                        print(message.sid)
+                        # message = client.messages.create(
+                        # from_=numbers,
+                        # to= f"+91{to_number}",
+                        # body = f"Dear {name}, \nTraffic Alert: Failure to carry car insurance is a serious violation of traffic laws. Protect yourself and others on the road by obtaining proper coverage immediately. Ignoring this requirement can lead to hefty fines, license suspension, and legal consequences. Your violation penalty has been issued. Don't put yourself at risk – get insured now."
+                        #             )
+                        # print(message.sid)
                         p = data['Plate_Number'][j]
                         annotated_text(("Traffic Violation Detected : NO INSURANCE : CAR NUMBER : ",p))
                         success = True
