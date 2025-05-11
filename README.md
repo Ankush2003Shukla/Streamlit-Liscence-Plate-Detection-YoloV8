@@ -22,7 +22,7 @@ This project aims to detect license plates in images or videos, check if the cor
 - **twilio==9.0.5**
 - **ultralytics==8.1.42**
 
-## Deployment
+## Deployment(In a servicing condition, so it may not work!)
 
 - The project is deployed on Streamlit Cloud and can be accessed using the following link:[
 License Plate Detection and Violation Alert App](https://app-liscence-plate-detection-yolov8-eqtl8k3picneujgpsrbjxe.streamlit.app/)
